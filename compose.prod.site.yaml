@@ -1,0 +1,10 @@
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      -./nginx.conf:/etc/nginx/nginc.conf
+    networks:
+      prod-network:
+        driver: bridge
