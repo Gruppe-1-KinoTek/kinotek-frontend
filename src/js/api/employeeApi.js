@@ -11,10 +11,15 @@ export async function login(name, password) {
     // her gemmer vi vha. sessionstorage
     // ikke en cookie = vi gemmer direkte i browseren
     // lidt langhåret, læs. https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
-    sessionStorage.setItem("employee", name);
+    const data = await res.json();
+    sessionStorage.setItem("employee", data.name);
+    sessionStorage.setItem("role", data.role);
     return true;
 
     // OBS - hver gang vi skal bruge en admin, læg den her ind:
+    // CHECK = EMPLOYEE?
     // if (!sessionStorage.getItem("employee")) location.href = "login.html";
-    // den siger at vi skal tjekke om browseren har gemt en employee.
+    // CHECK = ADMIN?
+    // if (sessionStorage.getItem("role") !== "Admin") location.href = "login.html";
+    // den siger at vi skal tjekke om browseren har gemt en employee. eller en role som er admin.
 }
