@@ -73,6 +73,7 @@ body{
 
 /* sørger for alle knapper arver font fra form */
 input, button, textarea, select {
+    display: flex;
   font: inherit;
   background-color: var(--off-white);
   color: var(var(--bordeaux));
