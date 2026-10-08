@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Vælg Sæder</title>
+    <link rel="stylesheet" href="../css/stylesheet.css">
 </head>
 <body>
 <main>
@@ -10,10 +11,26 @@
     <div class="screen">Screen</div>
 
     <form id="seat-form">
+
+
         <div id="seat-map"></div>
+
         <output for="seat-form" id="selection-summary">No seats selected</output>
+
+
+
+        <input
+                type="email"
+                name="email"
+                placeholder="Indtast Email"
+                id="inputEmail"
+                required>
+
         <button type="submit">Book seats</button>
     </form>
+
+
+
 </main>
 <script type="module" src="../js/booking.js"></script>
 </body>
