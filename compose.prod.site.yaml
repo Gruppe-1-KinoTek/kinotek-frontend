@@ -4,4 +4,4 @@ services:
     ports:
       - "80:80"
     volumes:
-      -./nginx.conf:/etc/nginx/nginc.conf
+      - ./nginx.conf:/etc/nginx/nginx.conf
