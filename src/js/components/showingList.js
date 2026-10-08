@@ -1,3 +1,4 @@
+// deprecated?
 import { groupByDate, formatDay, formatTime } from "../utils/dateFormat.js";
 
 export function renderShowings(container, showings) {
