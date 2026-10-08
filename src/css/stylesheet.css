@@ -67,6 +67,7 @@ body{
     background: var(--rich-black);
     color: var(--off-white);
     -webkit-font-smoothing: antialiased;
+    padding-left: 1rem;
 }
 
 /* ----- INTERAKTIVE ELEMENTER ------ */
