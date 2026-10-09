@@ -1,45 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
-    <title>Create movie</title>
+    <title>Opret film</title>
     <link rel="stylesheet" href="../css/stylesheet.css">
 </head>
-<nav>
-    <span class="logo">Logo</span>
-    <ul class="navigation">
-        <li>NavTest</li>
-    </ul>
-</nav>
-
 <body>
-<h3>Create movie</h3>
-<form id="formMovie">
-    <label for="title">Title</label>
-    <input id="title" type="text" placeholder="Title"/>
-    <br>
+<header>
+    <nav aria-label="Hovednavigation">
+        <a class="logo" href="../index.html">Kinotek</a>
+    </nav>
+</header>
+<main>
+    <h1>Opret film</h1>
+    <form id="formMovie">
+        <label for="title">Titel</label>
+        <input id="title" name="title" type="text" required>
 
-    <label for="description">Description</label>
-    <textarea id="description" name="description" rows="5" cols="50" placeholder="description"></textarea>
-    <br>
+        <label for="description">Beskrivelse</label>
+        <textarea id="description" name="description" rows="5" cols="50" required></textarea>
 
-    <label for="duration">Runtime</label>
-    <input id="duration" type="number" placeholder="Runtime in minutes"></input>
-    <br>
+        <label for="duration">Længde (minutter)</label>
+        <input id="duration" name="duration" type="number" min="1" required>
 
-    <label for="genre">Genre</label>
-    <select id="genre" name="genre" multiple></select>
-    <br>
+        <label for="genre">Genre (hold Ctrl/Cmd for flere)</label>
+        <select id="genre" name="genre" multiple required></select>
 
-    <label for="ageRating">Age rating</label>
-    <select id="ageRating" name="ageRating"></select>
-    <br>
+        <label for="ageRating">Aldersgrænse</label>
+        <select id="ageRating" name="ageRating" required>
+            <option value="" disabled selected>Vælg…</option>
+        </select>
 
-    <label for="imdbRef">IMDB link</label>
-    <input id="imdbRef" name="imdbRef" type="url" placeholder="www.imdb.com">
-    <button id="btnCreate" type="submit">Create movie</button>
-</form>
+        <label for="imdbRef">IMDb-link</label>
+        <input id="imdbRef" name="imdbRef" type="url" placeholder="https://www.imdb.com/title/...">
 
-<script type="module" src="js/movieForm.js"></script>
+        <label for="imageRef">Plakat (billed-URL)</label>
+        <input id="imageRef" name="imageRef" type="url">
+
+        <button type="submit">Opret film</button>
+    </form>
+    <p id="status" role="status"></p>
+</main>
+<script type="module" src="../js/movieForm.js"></script>
 </body>
 </html>

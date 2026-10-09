@@ -142,7 +142,7 @@ function createTimeItem(showing) {
 function createShowingLink(showing) {
     const link = document.createElement("a");
     link.href = `booking.html?showing=${showing.id}`;
-    link.append(createTime(showing), ` – ${showing.auditoriumName}`);
+    link.append(createTime(showing), ` – ${showing.auditorium}`);
     return link;
 }
 // laver datetime elementet til html
