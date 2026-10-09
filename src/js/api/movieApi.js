@@ -9,3 +9,17 @@ async function getJson(path) {
     if (!res.ok) throw new Error(`${res.status} ${path}`);
     return res.json();
 }
+
+export async function postMovie(createdMovie) {
+    const res = await fetch(`${API_BASE_URL}/api/movies`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(createdMovie),
+    });
+    if (!res.ok) {
+        const error = await res.json().catch(() => ({}));
+        throw new Error(error.message ?? `Oprettelse af film fejlede: ${res.status}`);
+    }
+    return res.json();
+}
+

@@ -24,7 +24,7 @@ function createMovie() {
     movie.description = description
     movie.duration = duration
     movie.genres = movieGenre
-    
+    return movie
 }
 
 function postMovie(movie) {
