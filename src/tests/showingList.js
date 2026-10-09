@@ -1,5 +1,5 @@
 // deprecated?
-import { groupByDate, formatDay, formatTime } from "../utils/dateFormat.js";
+import { groupByDate, formatDay, formatTime } from "../js/utils/dateFormat.js";
 
 export function renderShowings(container, showings) {
     const days = [...groupByDate(showings)];
