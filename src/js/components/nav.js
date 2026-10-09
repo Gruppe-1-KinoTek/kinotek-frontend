@@ -1,6 +1,8 @@
 const LINKS = [
     { label: "Film", path: "../../index.html", adminOnly: false },
     { label: "Opret film", path: "../../pages/movie-form.html", adminOnly: true },
+    { label: "Opret forestilling", path: "../../pages/showing-form.html", adminOnly: true },
+    { label: "Log ind", path: "../../pages/login.html", adminOnly: false },
 ];
 
 

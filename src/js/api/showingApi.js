@@ -1,5 +1,19 @@
 import { API_BASE_URL } from "../config.js";
 
+export const fetchAuditoriums = () => getJson("/api/auditoriums");
+
+export async function postShowing(showing) {
+    const res = await fetch(`${API_BASE_URL}/api/showing/create-showing`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(showing),
+    });
+    if (!res.ok) {
+        const error = await res.json().catch(() => ({}));
+        throw new Error(error.message ?? `Oprettelse fejlede: ${res.status}`);
+    }
+}
+
 export async function fetchSeatMap(showingId) {
     const seatMap = await getJson(`/api/showing/${showingId}/seat-map`)
     return { ...seatMap, rows: groupSeatsByRow(seatMap.seats)}

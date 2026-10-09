@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log ind – Kinotek</title>
+    <link rel="stylesheet" href="../css/stylesheet.css">
+</head>
+<body>
+<main>
+    <h1>Medarbejder-login</h1>
+    <form id="login-form">
+        <label for="name">Brugernavn</label>
+        <input id="name" name="name" type="text" autocomplete="username" required>
+
+        <label for="password">Adgangskode</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+
+        <output for="login-form" id="login-status"></output>
+        <button type="submit">Log ind</button>
+    </form>
+</main>
+<script type="module" src="../js/login.js"></script>
+</body>
+</html>
