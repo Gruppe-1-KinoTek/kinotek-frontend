@@ -2,6 +2,8 @@ import { API_BASE_URL } from "../config.js";
 
 export const fetchNowPlaying = () => getJson("/api/movies/now-playing");
 export const fetchMovie = id => getJson(`/api/movies/${id}`);
+
+
 export const fetchUpcomingShowings = movieId => getJson(`/api/showings/${movieId}`);
 
 async function getJson(path) {

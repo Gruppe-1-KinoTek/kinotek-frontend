@@ -1,0 +1,37 @@
+#calendar {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 40rem;
+}
+
+#calendar caption {
+    font-size: var(--font-size-large);
+    padding: .5rem;
+    text-transform: capitalize;
+}
+
+#calendar th, #calendar td {
+    text-align: center;
+    padding: .25rem;
+}
+
+#calendar td button {
+    width: 100%;
+    background: var(--yellow);
+    color: var(--rich-black);
+}
+
+#calendar td button:hover {
+    background: var(--white);
+}
+
+[popover] {
+    background: var(--bordeaux);
+    color: var(--off-white);
+    border: 1px solid var(--yellow);
+    padding: 1rem;
+}
+
+[popover]::backdrop {background: rgb(0 0 0 / .6); }
+[popover] ul { list-style: none; padding: 0; }
+[popover] a { display: block; padding: .5rem 0; }

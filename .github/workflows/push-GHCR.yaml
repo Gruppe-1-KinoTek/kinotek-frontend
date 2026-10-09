@@ -3,7 +3,7 @@ name: PUSH GHCR - Frontend
 on:
   push:
     branches:
-      - [main]
+      [main]
 
 env:
   REGISTRY: ghcr.io
@@ -33,8 +33,10 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/frontend
           tags: |
-            type=ref,event=tag
-            type=semver,pattern=v{{major}}.{{minor}}
+            type=ref,event=branch
+            type=sha,prefix={{branch}}-
+            type=raw,value=latest,enable={{is_default_branch}}
+
 
       - name: Build and push Docker image
         uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0   sep 15th 2026

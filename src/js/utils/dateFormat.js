@@ -11,11 +11,13 @@ export function groupByDate(showings) {
     return days;
 }
 
+// date map er "YYYY-DD-MM" -> her bliver det til "dag d. X md"
 export function formatDay(date) {
     return new Date(`${date}T00:00`).toLocaleDateString(LOCALE,
         { weekday: "long", day: "numeric", month: "long" });
 }
 
+// ryder tid op fra en lang string til bare 00:00
 export function formatTime(dateTime) {
     return new Date(dateTime).toLocaleTimeString(LOCALE, { hour: "2-digit", minute: "2-digit" });
 }
