@@ -3,7 +3,7 @@ name: PUSH GHCR - Frontend
 on:
   push:
     branches:
-      - [main]
+      [main]
 
 env:
   REGISTRY: ghcr.io
