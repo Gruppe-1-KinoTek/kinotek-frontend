@@ -13,15 +13,6 @@ const imdbRef = document.getElementById("imdbRef")
 const btnCreateMovie = document.getElementById("btnCreate")
 console.log(btnCreateMovie)
 
-// --- populate dropdowns ---
-//const urlMovie = "http://localhost:8080/movie/create" //fix url's when backend is deployed
-const urlGenre = "http://localhost:8080/genre/get"
-
-//move this into movieApi?
-let fetchedGenres
-async function genresFetch(){
-    fetchedGenres = await fetch(urlGenre)
-}
 
 
 // --- create and post movie ---
@@ -33,6 +24,7 @@ function createMovie() {
     movie.description = description
     movie.duration = duration
     movie.genres = movieGenre
+    
 }
 
 function postMovie(movie) {
