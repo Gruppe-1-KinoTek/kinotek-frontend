@@ -7,11 +7,30 @@ const showingId = new URLSearchParams(location.search).get("showing");
 init();
 
 async function init() {
-    const seatMap = await fetchSeatMap(showingId);
+    if (!showingId) {
+        showMessage("Ingen forestilling valgt.");
+        return;
+    }
+    try {
+        renderPage(await fetchSeatMap(showingId));
+    } catch {
+        showMessage("Kunne ikke hente sædekortet. Prøv igen senere.");
+    }
+}
+
+function renderPage(seatMap) {
     document.querySelector("#movie-title").textContent = seatMap.movieName;
     renderSeatMap(document.querySelector("#seat-map"), seatMap);
     form.addEventListener("change", updateSummary);
     form.addEventListener("submit", handleSubmit);
+}
+
+async function refreshSeatMap() {
+    try {
+        renderSeatMap(document.querySelector("#seat-map"), await fetchSeatMap(showingId));
+    } catch {
+        showMessage("Kunne ikke opdatere sædekortet.");
+    }
 }
 
 function createBookingRequest() {
