@@ -18,11 +18,10 @@
 
 }
 
-*{
-    margin: auto;
-    padding: auto;
-    transition: all .5s ease;
-}
+* { margin: 0; }
+
+a, button { transition: background .3s ease, color .3s ease; }
+
 
 *, *::before, *::after {box-sizing: border-box;}
 
@@ -67,19 +66,19 @@ body{
     background: var(--rich-black);
     color: var(--off-white);
     -webkit-font-smoothing: antialiased;
+    padding-left: 1rem;
 }
 
 /* ----- INTERAKTIVE ELEMENTER ------ */
 
 /* sørger for alle knapper arver font fra form */
 input, button, textarea, select {
-  font: inherit;
-  background-color: var(--off-white);
-  color: var(var(--bordeaux));
-  border: none;
-  box-shadow: 2px;
-  padding: 10px;
-  margin: 5px;
+    font: inherit;
+    background-color: var(--off-white);
+    color: var(--bordeaux);
+    border: none;
+    padding: 10px;
+    margin: 5px;
 }
 
 /* ----- SÆDER ------ */
