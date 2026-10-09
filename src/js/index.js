@@ -1,7 +1,7 @@
 import { fetchNowPlaying } from "./api/movieApi.js";
 import { renderMovieList } from "./components/movieList.js";
 
-const list = document.querySelector("#movie-list");
+const list = document.querySelector("#movie-listing");
 const status = document.querySelector("#status");
 
 init();
