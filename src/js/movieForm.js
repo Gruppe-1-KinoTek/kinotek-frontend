@@ -2,6 +2,8 @@ if (sessionStorage.getItem("role") !== "Admin") location.href = "login.html";
 
 import { fetchGenres, fetchAgeRatings, postMovie } from "./api/movieApi.js";
 import { fillSelect } from "./components/formSelect.js";
+import { renderNav } from "./components/nav.js";
+renderNav();
 
 const form = document.querySelector("#formMovie");
 const genreSelect = document.querySelector("#genre");
