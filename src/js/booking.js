@@ -53,7 +53,7 @@ function selectedSeatIds() {
 function updateSummary() {
     const count = selectedSeatIds().length;
     document.querySelector("#selection-summary").value =
-        count === 0 ? "No seats selected" : `${count} seat(s) selected`;
+        count === 0 ? "Ingen sæder valgt." : `${count} sæde(r) valgt`;
 }
 
 async function handleSubmit(event) {
