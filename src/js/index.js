@@ -3,7 +3,7 @@ import { renderMovieList } from "./components/movieListing.js";
 import { renderNav } from "./components/nav.js";
 renderNav();
 
-const list = document.querySelector("#movie-listing");
+const list = document.querySelector("#movie-list");
 const status = document.querySelector("#status");
 
 init();
@@ -13,7 +13,8 @@ async function init() {
         const movies = await fetchNowPlaying();
         renderMovieList(list, movies);
         status.textContent = movies.length ? "" : "Ingen film på programmet lige nu.";
-    } catch {
+    } catch (err) {
+        console.error(err);
         status.textContent = "Kunne ikke hente film. Prøv igen senere.";
     }
 }
