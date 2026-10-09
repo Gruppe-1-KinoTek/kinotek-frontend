@@ -36,6 +36,7 @@ async function init() {
 //  grupperer showings efter dato
 // starter på d. 1. i md -> next/back buttons
 function setupCalendar(showings) {
+    showings.sort((a, b) => a.dateTime.localeCompare(b.dateTime)); // ISO strings sorterer korrekt
     showingsByDate = groupByDate(showings);
     first = monthOf(showings[0].dateTime);
     last = monthOf(showings.at(-1).dateTime);

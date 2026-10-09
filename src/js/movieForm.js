@@ -1,36 +1,50 @@
-import {populateGenreDropDown} from "./components/movieGenreDopdown.js"
-import {setMovieGenre} from "./components/movieGenreDopdown.js"
-import {populateAgeRatingDropdown} from "./components/ageRatingDropdown.js"
-import {setMovieRating} from "./components/ageRatingDropdown.js"
+if (sessionStorage.getItem("role") !== "Admin") location.href = "login.html";
 
-const form = document.getElementById("movieForm)");
-const movieTitle = document.getElementById("title")
-const description = document.getElementById("description")
-const duration = document.getElementById("duration")
-const genreSelect = document.getElementById("genre");
-const ageRatingSelect = document.getElementById("ageRating");
-const imdbRef = document.getElementById("imdbRef")
-const btnCreateMovie = document.getElementById("btnCreate")
-console.log(btnCreateMovie)
+import { fetchGenres, fetchAgeRatings, postMovie } from "./api/movieApi.js";
+import { fillSelect } from "./components/formSelect.js";
 
+const form = document.querySelector("#formMovie");
+const genreSelect = document.querySelector("#genre");
+const ageRatingSelect = document.querySelector("#ageRating");
+const status = document.querySelector("#status");
 
+init();
 
-// --- create and post movie ---
-
+async function init() {
+ try {
+  const [genres, ageRatings] = await Promise.all([fetchGenres(), fetchAgeRatings()]);
+  fillSelect(genreSelect, genres, "id", "genreName");
+  fillSelect(ageRatingSelect, ageRatings, "id", "ageRating");
+  form.addEventListener("submit", handleSubmit);
+ } catch {
+  showStatus("Kunne ikke hente genrer og aldersgrænser.");
+ }
+}
 
 function createMovie() {
-   const movie = {};
-    movie.movieName = movieTitle
-    movie.description = description
-    movie.duration = duration
-    movie.genres = movieGenre
-    return movie
+ const data = new FormData(form);
+ return {
+  movieName: data.get("title").trim(),
+  description: data.get("description").trim(),
+  duration: Number(data.get("duration")),
+  imdbRef: data.get("imdbRef").trim(),
+  imageRef: data.get("imageRef").trim() || null,
+  ageRatingId: Number(data.get("ageRating")),
+  genreIds: data.getAll("genre").map(Number),
+ };
 }
 
-function postMovie(movie) {
-    // movie object to Json string
+async function handleSubmit(event) {
+ event.preventDefault(); // vi overskriver default opførsel for htmls <submit>
+ try {
+  const saved = await postMovie(createMovie()); // vi bruger vores POST i stedet
+  showStatus(`Filmen "${saved.movieName}" er oprettet.`);
+  form.reset();
+ } catch (err) { // generic error
+  showStatus(err.message);
+ }
 }
 
-ageRatingSelect.addEventListener("change", setMovieRating)
-genreSelect.addEventListener("change", setMovieGenre)
-btnCreateMovie.addEventListener("click", postMovie)
+function showStatus(text) {
+ status.textContent = text;
+}
