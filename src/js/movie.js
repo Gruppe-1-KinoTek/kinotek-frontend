@@ -1,6 +1,8 @@
 import { fetchMovie, fetchUpcomingShowings } from "./api/movieApi.js";
 import { groupByDate } from "./utils/dateFormat.js";
 import { renderCalendar } from "./components/calendar.js";
+import { renderNav } from "./components/nav.js";
+renderNav();
 
 const movieId = new URLSearchParams(location.search).get("movie");
 const status = document.querySelector("#status");
