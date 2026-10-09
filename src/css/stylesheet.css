@@ -5,7 +5,7 @@
     --surface: hsl(0, 25%, 11%);
     --bordeaux: hsl(0, 71%, 15%);
     --crimson: hsl(0, 68%, 43%);
-    --yellow: hsl(45, 100%, 54%);
+    --yellow: hsl(40, 35%, 90%);
     --white: hsl(0, 0%, 100%);
     --off-white: hsl(0, 0%, 88%);
     --muted: hsl(0, 0%, 64%);
@@ -58,6 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
 h2 { font-size: var(--font-size-large); }
 
+h1, h2 { letter-spacing: -.01em; }
 
 a { color: var(--yellow); }
 a:hover { color: var(--white); }
