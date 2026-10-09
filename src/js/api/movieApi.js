@@ -2,6 +2,7 @@ import { API_BASE_URL } from "../config.js";
 
 export const fetchNowPlaying = () => getJson("/api/movies/now-playing");
 export const fetchMovie = id => getJson(`/api/movies/${id}`);
+export const fetchMovies = () => getJson("/api/movies");
 export const fetchUpcomingShowings = movieId => getJson(`/api/showing/${movieId}`);
 export const fetchGenres = () => getJson("/api/movies/genres");
 export const fetchAgeRatings = () => getJson("/api/movies/age-ratings");
