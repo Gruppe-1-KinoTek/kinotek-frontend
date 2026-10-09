@@ -190,3 +190,12 @@ output { display: block; color: var(--yellow); }
     font-size: var(--font-size-small);
     color: var(--muted);
 }
+
+.movie-list article { transition: border-color .2s ease, transform .2s ease; }
+.movie-list article:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+.site-header { backdrop-filter: blur(6px); }
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}
