@@ -11,7 +11,8 @@ function createRow(row) {
 
 function createLegend(rowLetter) {
     const legend = document.createElement("legend");
-    legend.textContent = `Row ${rowLetter}`;
+    legend.className = "visually-hidden";
+    legend.textContent = `Række ${rowLetter}`;
     return legend;
 }
 
