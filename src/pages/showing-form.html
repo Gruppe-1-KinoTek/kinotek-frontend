@@ -2,38 +2,31 @@
 <html lang="da">
 <head>
     <meta charset="UTF-8">
-    <title>Opret forestilling</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Opret forestilling – Kinotek</title>
     <link rel="stylesheet" href="../css/stylesheet.css">
 </head>
 <body>
 <main>
     <h1>Opret forestilling</h1>
     <form id="showing-form">
-
         <label for="inputMovie">Film</label>
-        <select id="inputMovie" name="movieId" required>
+        <select id="inputMovie" name="movie" required>
             <option value="" disabled selected>Vælg film</option>
         </select>
 
         <label for="inputAuditorium">Sal</label>
-        <select id="inputAuditorium" name="auditoriumId" required>
+        <select id="inputAuditorium" name="auditorium" required>
             <option value="" disabled selected>Vælg sal</option>
         </select>
 
         <label for="inputDateTime">Dato og tidspunkt</label>
-        <input
-                type="datetime-local"
-                id="inputDateTime"
-                name="dateTime"
-                required>
+        <input type="datetime-local" id="inputDateTime" name="dateTime" required>
 
         <output for="showing-form" id="form-status"></output>
-
         <button type="submit">Opret forestilling</button>
     </form>
-
 </main>
-<script type="module" src="../js/showing.js"></script>
+<script type="module" src="../js/showingForm.js"></script>
 </body>
 </html>
