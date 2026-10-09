@@ -67,12 +67,14 @@ body{
     background: var(--rich-black);
     color: var(--off-white);
     -webkit-font-smoothing: antialiased;
+    padding-left: 1rem;
 }
 
 /* ----- INTERAKTIVE ELEMENTER ------ */
 
 /* sørger for alle knapper arver font fra form */
 input, button, textarea, select {
+    display: flex;
   font: inherit;
   background-color: var(--off-white);
   color: var(var(--bordeaux));
