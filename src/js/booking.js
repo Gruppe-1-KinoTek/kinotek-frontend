@@ -1,5 +1,7 @@
 import { fetchSeatMap, postBooking } from "./api/showingApi.js";
 import { renderSeatMap } from "./components/seatPicker.js";
+import { renderNav } from "./components/nav.js";
+renderNav();
 
 const form = document.querySelector("#seat-form");
 const showingId = new URLSearchParams(location.search).get("showing");
