@@ -14,7 +14,7 @@ async function init() {
         return;
     }
     try {
-        renderPage(await fetchSeatMap(showingId));
+        renderPage(await refreshSeatMap());
     } catch (err) {
             console.error(err);
             showMessage("Kunne ikke hente sædekortet. Prøv igen senere.");
