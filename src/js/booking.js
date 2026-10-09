@@ -15,8 +15,9 @@ async function init() {
     }
     try {
         renderPage(await fetchSeatMap(showingId));
-    } catch {
-        showMessage("Kunne ikke hente sædekortet. Prøv igen senere.");
+    } catch (err) {
+            console.error(err);
+            showMessage("Kunne ikke hente sædekortet. Prøv igen senere.");
     }
 }
 
@@ -30,7 +31,8 @@ function renderPage(seatMap) {
 async function refreshSeatMap() {
     try {
         renderSeatMap(document.querySelector("#seat-map"), await fetchSeatMap(showingId));
-    } catch {
+    } catch (err) {
+        console.error(err);
         showMessage("Kunne ikke opdatere sædekortet.");
     }
 }

@@ -18,7 +18,8 @@ async function init() {
   fillSelect(genreSelect, genres, "id", "genreName");
   fillSelect(ageRatingSelect, ageRatings, "id", "ageRating");
   form.addEventListener("submit", handleSubmit);
- } catch {
+ } catch (err) {
+  console.error(err);
   showStatus("Kunne ikke hente genrer og aldersgrænser.");
  }
 }

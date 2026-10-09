@@ -31,7 +31,8 @@ async function init() {
             return;
         }
         setupCalendar(showings);
-    } catch {
+    } catch (err) {
+        console.error(err);
         status.textContent = "Kunne ikke hente filmen. Prøv igen senere.";
     }
 }
