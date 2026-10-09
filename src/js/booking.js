@@ -3,8 +3,7 @@ import { renderSeatMap } from "./components/seatPicker.js";
 
 const form = document.querySelector("#seat-form");
 //const showingId = new URLSearchParams(location.search).get("showing");
-// hardcoder showingId til 8 for test // TODO: FJERN DETTE
-const showingId = 421;
+
 
 init();
 
