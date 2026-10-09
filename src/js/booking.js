@@ -70,7 +70,7 @@ async function handleSubmit(event) {
         showMessage(err.message);
         button.disabled = false;
         // sædet kan være taget af en anden imens → hent sædekortet igen
-        renderSeatMap(document.querySelector("#seat-map"), await fetchSeatMap(showingId));
+        await fetchSeatMap(showingId);
     }
 }
 
@@ -81,19 +81,27 @@ function showMessage(text) {
 }
 
 function renderConfirmation(c) {
-    const seats = c.bookedSeats
-        .map(s => `${s.seatRowLetter}${s.seatNumber}`)
-        .join(", ");
-    const time = new Date(c.showingDateTime).toLocaleString("da-DK", {
-        dateStyle: "full", timeStyle: "short",
-    });
-
     const section = document.createElement("section");
-    section.innerHTML = `
-        <h2>Tak for din booking!</h2>
-        <p>Ordrenummer: <strong>${c.invoiceId}</strong></p>
-        <p>${c.movieName} · ${c.auditoriumName}</p>
-        <p>${time}</p>
-        <p>Sæder: ${seats}</p>`;
+    section.append(
+        createElement("h2", "Tak for din booking!"),
+        createElement("p", `Ordrenummer: ${c.invoiceId}`),
+        createElement("p", `${c.movieName} · ${c.auditoriumName}`),
+        createElement("p", formatShowingTime(c.showingDateTime)),
+        createElement("p", `Sæder: ${formatSeats(c.bookedSeats)}`)
+    );
     form.replaceWith(section);
+}
+
+function createElement(tag, text) {
+    const element = document.createElement(tag);
+    element.textContent = text;
+    return element;
+}
+
+function formatSeats(seats) {
+    return seats.map(s => `${s.seatRowLetter}${s.seatNumber}`).join(", ");
+}
+
+function formatShowingTime(dateTime) {
+    return new Date(dateTime).toLocaleString("da-DK", { dateStyle: "full", timeStyle: "short" });
 }
