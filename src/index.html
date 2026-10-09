@@ -1,30 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-     <link rel="stylesheet" href="./css/stylesheet.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kinotek</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
 </head>
-<nav>
-    <span class="logo">test</span>
-    <ul class="navigation">
-        <li>test</li>
-    </ul>
-</nav>
 <body>
-    <h1>Test</h1>
-    <h2>Test</h2>
-    <h3>Test</h3>
-    <h4>test</h4>
-    <h5>test</h5>
-    <h6>test</h6>
-    <span>test</span>
-    <p>test</p>
-
-
-    <section><span>test</span></section>
-
-
-    <button>test</button>
+<header>
+    <nav aria-label="Hovednavigation">
+        <a class="logo" href="index.html">Kinotek</a>
+    </nav>
+</header>
+<main>
+    <h1>Aktuelle film</h1>
+    <ul id="movie-list" class="movie-list"></ul>
+    <p id="status" role="status"></p>
+</main>
+<script type="module" src="js/index.js"></script>
 </body>
 </html>

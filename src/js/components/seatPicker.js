@@ -26,16 +26,17 @@ function createInput(seat) {
     const input = document.createElement("input");
     input.type = "checkbox";
     input.name = "seat";
-    input.value = seat.id;
-    input.id = `seat-${seat.id}`;
+    input.value = seat.seatId;
+    input.id = `seat-${seat.seatId}`;
     input.disabled = seat.booked;
+
     input.dataset.accessible = seat.accessible;
     return input;
 }
 
 function createLabel(rowLetter, seat) {
     const label = document.createElement("label");
-    label.htmlFor = `seat-${seat.id}`;
+    label.htmlFor = `seat-${seat.seatId}`;
     label.textContent = seat.seatNumber;
     label.title = `${rowLetter}${seat.seatNumber}`;
     return label;
