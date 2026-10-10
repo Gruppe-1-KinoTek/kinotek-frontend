@@ -14,10 +14,10 @@ async function init() {
         return;
     }
     try {
-        renderPage(await refreshSeatMap());
+        renderPage(await fetchSeatMap(showingId));
     } catch (err) {
-            console.error(err);
-            showMessage("Kunne ikke hente sædekortet. Prøv igen senere.");
+        console.error(err);
+        showMessage("Kunne ikke hente sædekortet. Prøv igen senere.");
     }
 }
 
@@ -74,7 +74,7 @@ async function handleSubmit(event) {
         showMessage(err.message);
         button.disabled = false;
         // sædet kan være taget af en anden imens → hent sædekortet igen
-        await fetchSeatMap(showingId);
+        await refreshSeatMap();
     }
 }
 

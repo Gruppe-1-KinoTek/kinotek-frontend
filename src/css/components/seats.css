@@ -1,7 +1,7 @@
 :root {
     --seat-free: var(--off-white);
     --seat-hover: hsl(45, 100%, 82%);
-    --seat-selected: var(--yellow);
+    --seat-selected: hsl(150, 60%, 45%);
     --seat-booked: var(--crimson);
     --seat-accessible: hsl(210, 65%, 62%);
 }
@@ -84,8 +84,7 @@
 /* ------ STATES ------ */
 .seat input[data-accessible="true"] + label { background: var(--seat-accessible); }
 
-.seat input:hover:not(:disabled) + label { background: var(--seat-hover); }
-.seat input:checked + label { background: var(--seat-selected); }
+.seat input:hover:not(:disabled):not(:checked) + label { background: var(--seat-hover); }.seat input:checked + label { background: var(--seat-selected); }
 
 .seat input:disabled { cursor: not-allowed; }
 .seat input:disabled + label {
@@ -94,6 +93,12 @@
 }
 
 .seat input:focus-visible + label { outline: 2px solid var(--white); outline-offset: 3px; }
+
+.seat input:checked + label {
+    background: var(--seat-selected);
+    box-shadow: inset 0 -.45rem 0 rgb(0 0 0 / .18), 0 0 0 2px var(--white);
+    transform: translateY(-2px);
+}
 
 /* ------ LEGEND (colour key) ------ */
 .seat-legend {
